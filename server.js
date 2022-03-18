@@ -42,6 +42,24 @@ db.once('open', () => {
   });
 });
 
+// --------------Finds a friend----------///
+app.get('/friend/:id', (req, res) => {
+  // Using model in route to find all documents that are instances of that model
+  friendRoutes.findByPk({}, (err, result) => {
+    if (err) {
+      res.status(500).json({ message: 'Internal server error' });
+    }
+    res.status(200).json(result);
+  });
+});
+
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
+  });
+});
+
+
 
 
 // --------------Finds all thoughts----------///
