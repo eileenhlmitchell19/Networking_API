@@ -29,6 +29,7 @@ const userSchema = new mongoose.Schema({
 //Using mongoose.model() to compile a model based 
 const User = mongoose.model('User', userSchema);
 
+//Where does this get called??--------------------------------------------------HELP//
 // Error handler function to be called when an error occurs when trying to save a document
 const handleError = (err) => console.error(err);
 

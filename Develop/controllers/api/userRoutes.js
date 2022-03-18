@@ -20,6 +20,24 @@ router.get('/:user_Id', async (req, res) => {
     }  
 })
 
+//POST a new user
+
+
+// PUT to update a user by its _id 
+
+
+// DELETE to remove user by its _id
+// deleteUser({ params }, res) {
+//     User.findOneAndDelete({ _id: params.id })
+//     .then(dbUserData => {
+//     if (!dbUserData) {
+//         res.status(404).json({ message: 'No user can be found with this ID!' });
+//         return;
+//     }
+//     res.json(dbUserData);
+//     })
+//     .catch(err => res.status(400).json(err))
+// }
 
 //is this router or User
 module.exports = router;
