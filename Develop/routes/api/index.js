@@ -13,8 +13,8 @@ const friendRoutes = require('./friendRoutes');
 const thoughtRoutes = require('./thoughtRoutes');
 const userRoutes = require('./userRoutes');
 
-router.use('../../controllers/api/', friendRoutes);
-router.use('../../controllers/api/thoughtRoutes', thoughtRoutes);
-router.use('../../controllers/api/userRoutes', userRoutes);
+router.use('/friends', friendRoutes);
+router.use('/thoughts', thoughtRoutes);
+router.use('/users', userRoutes);
 
 module.exports = router;
