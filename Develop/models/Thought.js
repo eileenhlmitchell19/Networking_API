@@ -48,13 +48,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reactionSchema = new mongoose.Schema({
-  // I DONT UNDERSTAND WHAT SHOULD GO IN HERE--------------------------------HELP//
   //reactionID should have: use mongoose ObjectId data type & Default value is set to a new objectID
   reactionId: {  type: Schema.Types.ObjectId,
     default: () => new Types.ObjectId() },
   reactionBody: { type: String, required: true, maxLength: 280 },
   username: { type: String, required: true,   },
-  //I DONT UNDERSTAND GETTER METHODS----------------------------------------HELP//
   createAt: { type: Date, default: Date.now, get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a'), },
 });
 
@@ -62,7 +60,6 @@ const reactionSchema = new mongoose.Schema({
 const thoughtSchema = new mongoose.Schema({
   thoughtText: { type: String, required: true, maxLength: 280 },
   createdAt: { type: Date, default: Date.now, get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a'), },
-  //I DONT UNDERSTAND GETTER METHODS----------------------------------------HELP//
   username: { type: String, required: true,   },
   reactions: [ reactionSchema ],
 });

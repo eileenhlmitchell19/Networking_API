@@ -6,6 +6,16 @@ const {
   deleteUser,
 } = require('../controllers/userControllers');
 
+
+
+// // /api/courses/:courseId
+// router
+  
+//   .get(getSingleCourse)
+//   .put(updateCourse)
+//   .delete(deleteCourse);
+
+
 // /api/students
 router.route('/').get(getUser).post(createUser);
 

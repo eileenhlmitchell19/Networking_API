@@ -4,7 +4,7 @@ const {
   getSingleThought,
   createThought,
   deleteThought,
-} = require('../controllers/thoughtControllers');
+} = require('../../controllers/thoughtControllers');
 
 // /api/students
 router.route('/').get(getThought).post(createThought);
