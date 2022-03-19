@@ -1,3 +1,6 @@
+var express = require('express'); // Get the module
+var app = express(); // Create express by calling the prototype in var express
+
 const router = require( express );
 const { Friend } =  require('../thoughtRoutes.js')
 //do i need to route this different
