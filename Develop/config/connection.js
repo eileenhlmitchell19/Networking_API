@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 
-// Wrap Mongoose around local connection to MongoDB
-mongoose.connect('mongodb://127.0.1:27017/networkDB', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.1:27017/networkDB', {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 });
 
-// Export connection
 module.exports = mongoose.connection;
