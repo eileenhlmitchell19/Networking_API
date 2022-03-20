@@ -1,5 +1,5 @@
 // const express = require( 'express' );
-const { Thought } =  require('../routes/api/thoughtRoutes.js')
+const { Thought } =  require('../models')
 //do i need to route this different
 
 

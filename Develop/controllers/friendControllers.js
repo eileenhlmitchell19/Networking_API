@@ -1,5 +1,6 @@
-var express = require('express'); // Get the module
-var app = express(); // Create express by calling the prototype in var express
+// var express = require('express'); // Get the module
+// var app = express(); // Create express by calling the prototype in var express
+const { Friend } = require('../models')
 
 const friendController = {
   getFriends(req, res) {
@@ -13,17 +14,17 @@ const friendController = {
       });
   },
   createFriend(req, res) {
-        User.create(req.body).then((dbdata) => {
+        Friend.create(req.body).then((dbdata) => {
             res.join(dbdata);
           });
     },
     postFriend(req, res) {
-      User.findOneAndUpdate(req.body).then((dbdata) => {
+      Friend.findOneAndUpdate(req.body).then((dbdata) => {
           res.join(dbdata);
         });
   },
     updateFriend(req, res) {
-      User.findOneAndUpdate(req.body).then((dbdata) => {
+      Friend.findOneAndUpdate(req.body).then((dbdata) => {
           res.join(dbdata);
         });
   },
