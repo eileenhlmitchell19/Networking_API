@@ -1,6 +1,46 @@
 const router = require( express );
-const { User } =  require('../userRoutes.js')
+const { User } = require('../models');
 //do i need to route this different
+
+const userController = {
+  getUsers(req, res) {
+    User.find(req.body).then((dbdata) => {
+        res.join(dbdata);
+      });
+  },
+  getsingleUser(req, res) {
+    User.findOne(req.body).then((dbdata) => {
+        res.join(dbdata);
+      });
+  },
+  createUser(req, res) {
+        User.create(req.body).then((dbdata) => {
+            res.join(dbdata);
+          });
+    },
+    postUser(req, res) {
+      User.findOneAndUpdate(req.body).then((dbdata) => {
+          res.join(dbdata);
+        });
+  },
+    updateUser(req, res) {
+      User.findOneAndUpdate(req.body).then((dbdata) => {
+          res.join(dbdata);
+        });
+  },
+  deleteUser({ params, body}, res) {
+    User.findOneAndDelete({ _id: params.id })
+    .then(deletedUser => {
+        if (!deletedUser) {
+            return res.status(404).json({ message: 'No user found with this ID!'})
+        }
+        res.json(deletedUser);
+    })
+    .catch(err => res.json(err));
+  }
+  };
+
+//
 
 // GET all users
 router.get('/', async (req, res) => {
@@ -20,24 +60,6 @@ router.get('/:user_Id', async (req, res) => {
     }  
 })
 
-//POST a new user
-
-
-// PUT to update a user by its _id 
-
-
-// DELETE to remove user by its _id
-// deleteUser({ params }, res) {
-//     User.findOneAndDelete({ _id: params.id })
-//     .then(dbUserData => {
-//     if (!dbUserData) {
-//         res.status(404).json({ message: 'No user can be found with this ID!' });
-//         return;
-//     }
-//     res.json(dbUserData);
-//     })
-//     .catch(err => res.status(400).json(err))
-// }
 
 //is this router or User
-module.exports = router;
+module.exports = userController;
