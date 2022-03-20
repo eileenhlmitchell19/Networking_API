@@ -1,4 +1,4 @@
-const router = require( express );
+// const express = require( 'express' );
 const { Thought } =  require('../thoughtRoutes.js')
 //do i need to route this different
 
@@ -19,7 +19,7 @@ const thoughtController = {
       .then((post) => {
         return Thought.findOneAndUpdate(
           { _id: req.body.thoughtId },
-          { $addToSet: { Thoughts: thought._id } },
+          { $addToSet: { Thought: thought._id } },
           { new: true }
         );
       })
