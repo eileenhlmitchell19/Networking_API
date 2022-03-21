@@ -14,7 +14,7 @@
 
 const express = require('express');
 const db = require('./Develop/config/connection');
-const routes = require('./routes');
+const routes = require('./Develop/routes');
 // Require model ** or should this be ./models???
 // const { friendRoutes } = require('./Develop/controllers/friendControllers');
 // const { thoughtRoutes } = require('./Develop/controllers/thoughtControllers');

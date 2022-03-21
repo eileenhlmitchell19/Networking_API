@@ -6,7 +6,7 @@ const {
   postFriend,
   updateFriend,
   deleteFriend,
-} = require('../controllers/friendControllers');
+} = require('./Develop/controllers/friendControllers');
 
 router
 .route('/')

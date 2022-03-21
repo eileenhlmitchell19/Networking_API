@@ -5,14 +5,18 @@ const { Thought } =  require('../models')
 
 const thoughtController = {
   getThoughts(req, res) {
-      Thought.find(req.body).then((dbdata) => {
-          res.join(dbdata);
+      Thought.find
+      .then((dbdata) => {
+          res.join(dbdata)
+          .catch((err) => res.status(500).json(err));
         });
   },
   getsingleThought(req, res) {
-    Thought.find(req.body).then((dbdata) => {
-        res.join(dbdata);
-      });
+    Thought.findOne({_id: req.params.thoughtId})
+    .then((dbdata) => 
+     !thought
+     ? res.status(404).json({ message: 'No course with that ID' })
+     : res.json(dbdata));
 },
   createThought(req, res) {
     Thought.create(req.body)

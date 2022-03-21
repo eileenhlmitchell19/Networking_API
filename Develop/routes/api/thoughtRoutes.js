@@ -6,7 +6,7 @@ const {
   postThought,
   updateThought,
   deleteThought,
-} = require('../../controllers/thoughtControllers');
+} = require('../Develop/controllers/thoughtControllers');
 
 router
 .route('/')
