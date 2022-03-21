@@ -1,6 +1,6 @@
 // var express = require('express'); // Get the module
 // var app = express(); // Create express by calling the prototype in var express
-const { Friend } = require('../models')
+const { Friend } = require('./Develop/models')
 
 const friendController = {
   getFriends(req, res) {

@@ -19,11 +19,4 @@ router
 .update(updateFriend)
 .delete(deleteFriend)
 
-
-// /api/students
-// router.route('/').get(getFriend).post(createFriend);
-
-// // /api/students/:studentId
-// router.route('/:friendId').get(getSingleFriend).delete(deleteFriend);
-
 module.exports = router;
