@@ -14,17 +14,18 @@
 
 const express = require('express');
 const db = require('./Develop/config/connection');
+const routes = require('./routes');
 // Require model ** or should this be ./models???
-const { friendRoutes } = require('./Develop/controllers/friendControllers');
-const { thoughtRoutes } = require('./Develop/controllers/thoughtControllers');
-const { userRoutes } = require('./Develop/controllers/userControllers');
+// const { friendRoutes } = require('./Develop/controllers/friendControllers');
+// const { thoughtRoutes } = require('./Develop/controllers/thoughtControllers');
+// const { userRoutes } = require('./Develop/controllers/userControllers');
 
 const PORT = 3001;
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(routes);
 // --------------Finds all friends----------///
 // app.get('/all-friends', (req, res) => {
 //   // Using model in route to find all documents that are instances of that model
