@@ -24,7 +24,7 @@ router
 router
   .route('/:userId')
   .get(getsingleFriend)
-  .create(createFriend)
+  .put(updateFriend)
 
 router
   .route('/:userId/friends/:friendId')

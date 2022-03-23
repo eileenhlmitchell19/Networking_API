@@ -15,7 +15,7 @@ router
 router
   .route('/:thoughtid')
   .get(getsingleThought)
-  .create(createThought)
+  .put(updateThought)
 
 router
   .route('/:thoughtId/reactions')
