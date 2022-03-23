@@ -1,5 +1,5 @@
 // const router = require( express );
-const { User } = require('../Develop/models');
+const { User } = require('../models');
 //do i need to route this different
 
 const userController = {
