@@ -5,6 +5,9 @@ By: Eileen Mitchell
 # Git Hub Repo
 https://github.com/eileenhlmitchell19/Networking_API
 
+# Walkthrough Video
+https://www.youtube.com/watch?v=iWODZn9r30w
+
 # Technologies Used
 - MONGODB
 - MONGOOSE
