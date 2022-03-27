@@ -1,15 +1,16 @@
 // const express = require( 'express' );
 // const router = require('express').Router();
-const { Thought } =  require('../models')
+const { Thought } =  require('../models');
+const User = require('../models/User');
 //do i need to route this different
 
 
 const thoughtController = {
   getThoughts(req, res) {
-    Thought.find
+    Thought.find()
     .then((dbdata) => {
-        res.join(dbdata)
-        .catch((err) => res.status(500).json(err));
+        res.json(dbdata)
+        
 
         // const thought = Thought.find()
         // res.send(thought)
@@ -17,7 +18,8 @@ const thoughtController = {
         //     res.join(dbdata)
         //  });
         // .catch((err) => res.status(500).json(err));
-      });
+      })
+      .catch((err) => res.status(500).json(err));
   },
   getsingleThought(req, res) {
     Thought.findOne({_id: req.params.thoughtId})
@@ -28,10 +30,10 @@ const thoughtController = {
 },
   createThought(req, res) {
     Thought.create(req.body)
-      .then((post) => {
-        return Thought.findOneAndUpdate(
-          { _id: req.body.thoughtId },
-          { $addToSet: { Thought: thought._id } },
+      .then((thought) => {
+        return User.findOneAndUpdate(
+          { _id: req.body.userId },
+          { $addToSet: { thoughts: thought._id } },
           { new: true }
         );
       })
