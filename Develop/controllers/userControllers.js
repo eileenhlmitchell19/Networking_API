@@ -5,27 +5,27 @@ const { User } = require('../models');
 const userController = {
   getUsers(req, res) {
     User.find(req.body).then((dbdata) => {
-        res.join(dbdata);
+        res.json(dbdata);
       });
   },
   getsingleUser(req, res) {
     User.findOne(req.body).then((dbdata) => {
-        res.join(dbdata);
+        res.json(dbdata);
       });
   },
   createUser(req, res) {
         User.create(req.body).then((dbdata) => {
-            res.join(dbdata);
+            res.json(dbdata);
           });
     },
     postUser(req, res) {
       User.findOneAndUpdate(req.body).then((dbdata) => {
-          res.join(dbdata);
+          res.json(dbdata);
         });
   },
     updateUser(req, res) {
       User.findOneAndUpdate(req.body).then((dbdata) => {
-          res.join(dbdata);
+          res.json(dbdata);
         });
   },
   deleteUser({ params, body}, res) {
@@ -39,26 +39,6 @@ const userController = {
     .catch(err => res.json(err));
   }
   };
-
-//
-
-// GET all users
-// router.get('/', async (req, res) => {
-// try{
-//     const userData = await User.find();
-// } catch(err) {
-//     res.status(500).json()
-// }
-// });
-
-// // GET a single user
-// router.get('/:user_Id', async (req, res) => {
-//     try{
-//         const userData = await User.findById(req.params.userId);
-//     } catch(err) {
-//         res.status(500).json()
-//     }  
-// })
 
 
 //is this router or User

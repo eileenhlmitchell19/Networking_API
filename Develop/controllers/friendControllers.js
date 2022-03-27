@@ -5,27 +5,27 @@ const { Friend } = require('../models')
 const friendController = {
   getFriends(req, res) {
     Friend.find(req.body).then((dbdata) => {
-        res.join(dbdata);
+        res.json(dbdata);
       });
   },
   getsingleFriend(req, res) {
     Friend.findOne(req.body).then((dbdata) => {
-        res.join(dbdata);
+        res.json(dbdata);
       });
   },
   createFriend(req, res) {
         Friend.create(req.body).then((dbdata) => {
-            res.join(dbdata);
+            res.json(dbdata);
           });
     },
     postFriend(req, res) {
       Friend.findOneAndUpdate(req.body).then((dbdata) => {
-          res.join(dbdata);
+          res.json(dbdata);
         });
   },
     updateFriend(req, res) {
       Friend.findOneAndUpdate(req.body).then((dbdata) => {
-          res.join(dbdata);
+          res.json(dbdata);
         });
   },
   deleteFriend({ params, body}, res) {
