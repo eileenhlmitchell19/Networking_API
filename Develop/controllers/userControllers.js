@@ -1,12 +1,15 @@
 // const router = require( express );
 const { User } = require('../models');
+// const User = require('../models/User');
 //do i need to route this different
 
 const userController = {
   getUsers(req, res) {
-    User.find(req.body).then((dbdata) => {
+    User.find()
+    .then((dbdata) => {
         res.json(dbdata);
-      });
+      })
+      .catch((err) => res.status(500).json(err));
   },
   getsingleUser(req, res) {
     User.findOne(req.body).then((dbdata) => {

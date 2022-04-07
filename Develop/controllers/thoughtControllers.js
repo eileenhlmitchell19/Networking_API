@@ -1,7 +1,7 @@
 // const express = require( 'express' );
 // const router = require('express').Router();
 const { Thought } =  require('../models');
-const User = require('../models/User');
+// const User = require('../models/User');
 //do i need to route this different
 
 
@@ -14,11 +14,17 @@ const thoughtController = {
       .catch((err) => res.status(500).json(err));
   },
   getsingleThought(req, res) {
-    Thought.findOne({_id: req.params.thoughtId})
-    .then((dbdata) => 
-     !thought
-     ? res.status(404).json({ message: 'No course with that ID' })
-     : res.json(dbdata));
+  Thought.findOne({ _id: req.params.thoughtId })
+    .select('-__v')
+    .then((thought) =>
+      !thought
+        ? res.status(404).json({ message: 'No course with that ID' })
+        : res.json(thought)
+    )
+    .catch((err) => {
+      console.log(err)
+      res.status(500).json(err)
+    });
 },
   createThought(req, res) {
     Thought.create(req.body)
@@ -47,20 +53,28 @@ const thoughtController = {
       });
 },
   updateThought(req, res) {
-    Thought.findOneAndUpdate(req.body).then((dbdata) => {
-        res.json(dbdata);
-      });
+  Thought.findOneAndUpdate(
+    { _id: req.params.thoughtId },
+    { $set: req.body },
+    { runValidators: true, new: true }
+  )
+    .then((dbdata) =>
+      !course
+        ? res.status(404).json({ message: 'No course with this id!' })
+        : res.json(dbdata)
+    )
+    .catch((err) => res.status(500).json(err));
 },
-deleteThought({ params, body}, res) {
-  Thought.findOneAndDelete({ _id: params.id })
-  .then(deletedThought => {
-      if (!deletedThought) {
-          return res.status(404).json({ message: 'No thought found with this ID!'})
-      }
-      res.json(deletedThought);
-  })
-  .catch(err => res.json(err));
-}
+deleteThought(req, res) {
+    Thought.findOneAndDelete({ _id: req.params.courseId })
+      .then((dbdata) =>
+        !thought
+          ? res.status(404).json({ message: 'No course with that ID' })
+          : Student.deleteMany({ _id: { $in: course.students } })
+      )
+      .then(() => res.json({ message: 'Course and students deleted!' }))
+      .catch((err) => res.status(500).json(err));
+  },
 };
 
 module.exports = thoughtController;
