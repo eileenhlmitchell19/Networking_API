@@ -12,6 +12,7 @@ const {
 router
   .route('/')
   .get(getThoughts)
+  .post(createThought)//tutor addedhtis nor my fault
 
 router
   .route('/:thoughtid')
@@ -19,7 +20,7 @@ router
   .put(updateThought)
 
 router
-  .route('/:thoughtId/reactions')
+  .route('/:thoughtid/reactions')
   .post(postThought)
   .delete(deleteThought)
 
