@@ -9,7 +9,7 @@
 // };
 
 const router = require('express').Router();
-const friendRoutes = require('./friendRoutes');
+// const friendRoutes = require('./friendRoutes');
 const thoughtRoutes = require('./thoughtRoutes');
 const userRoutes = require('./userRoutes');
 
