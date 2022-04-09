@@ -15,21 +15,26 @@ const {
   postFriend,
   updateFriend,
   deleteFriend,
-} = require('../../controllers/friendControllers.js');
+} = require('../../controllers/friendControllers');
 
 router
   .route('/')
   .get(getFriends)
+  // .get(getUsers)
 
 router
   .route('/:userId')
   .get(getsingleFriend)
+  // .get(getsingleUser)
   .put(updateFriend)
+  // .put(updateUser)
 
 router
   .route('/:userId/friends/:friendId')
   .post(postFriend)
+  // .post(postUser)
   .delete(deleteFriend)
+  // .delete(deleteUser)
 
 
 
