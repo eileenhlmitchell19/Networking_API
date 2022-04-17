@@ -5,6 +5,7 @@ const { Thought } = require("../models");
 //do i need to route this different
 
 const thoughtController = {
+  //GETS all thoughts-------------//
   getThoughts(req, res) {
     Thought.find()
       .then((dbdata) => {
@@ -12,6 +13,8 @@ const thoughtController = {
       })
       .catch((err) => res.status(500).json(err));
   },
+
+  //GETS a single thought--------------//
   getsingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtid })
       .select("-__v")
@@ -25,6 +28,7 @@ const thoughtController = {
         res.status(500).json(err);
       });
   },
+  //CREATES a thought-------------//
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
@@ -49,12 +53,13 @@ const thoughtController = {
         res.status(500).json(err);
       });
   },
-
+  //POSTS a thought--------------//
   postThought(req, res) {
     Thought.findOneAndUpdate(req.body).then((dbdata) => {
       res.json(dbdata);
     });
   },
+  //UPDATES a thought-------------//
   updateThought(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtid },
@@ -68,6 +73,7 @@ const thoughtController = {
       )
       .catch((err) => res.status(500).json(err));
   },
+  //DELETES a thought-------------//
   deleteThought(req, res) {
     Thought.findOneAndDelete({ _id: req.params.thoughtid })
       .then((dbdata) =>

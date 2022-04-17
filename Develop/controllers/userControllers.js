@@ -2,6 +2,7 @@ const { User, Thought } = require("../models");
 //do i need to route this different
 
 const userController = {
+  //GETS all users-------------//
   getUsers(req, res) {
     User.find()
       .then((dbdata) => {
@@ -9,7 +10,7 @@ const userController = {
       })
       .catch((err) => res.status(500).json(err));
   },
-
+  //GETS a single user-------------//
   getsingleUser(req, res) {
     User.findOne({ _id: req.params.userid })
       .select("-__v")
@@ -24,7 +25,7 @@ const userController = {
       });
   },
 
-
+    //CREATES a user-------------//
     createUser(req, res) {
     User.create(req.body)
     .then((dbdata) => res.json(dbdata))
@@ -32,7 +33,7 @@ const userController = {
 
   },
 
-
+  //UPDATES a user-------------//
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userid },
@@ -48,7 +49,7 @@ const userController = {
   },
 
 
-
+  //DELETES a user-------------//
   deleteUser(req, res) {
     User.findOneAndDelete({ _id: req.params.userid })
       .then((dbdata) =>

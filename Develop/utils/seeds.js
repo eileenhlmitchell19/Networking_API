@@ -8,6 +8,7 @@ const readDir = util.promisify(fs.readdir).bind(fs);
 const path = require("path");
 const mongoose = require("mongoose");
 
+//seed data for users
 const userData = [
   {
     name: "Harold",
@@ -29,6 +30,7 @@ const userData = [
   },
 ];
 
+//seed data for thoughts
 const thoughtData = [
   {
     "thoughtText": "Here's a cool thought...",
