@@ -6,7 +6,7 @@ By: Eileen Mitchell
 https://github.com/eileenhlmitchell19/Networking_API
 
 # Walkthrough Video
-https://www.youtube.com/watch?v=iWODZn9r30w
+https://youtu.be/FW3f67RsUG0
 
 # Technologies Used
 - MONGODB
@@ -16,9 +16,6 @@ https://www.youtube.com/watch?v=iWODZn9r30w
 
 # Description
 This application allows users to create an API for social networking to share thoughts, react to friends, thoughts, and create a friend list. This is the back end development of many social platforms that future front end development can be tied into. 
-
-# Known Bugs
-- Insomnia Routes arent operational
 
 # Links
 - [connection.js](./Develop/config/connection.js)

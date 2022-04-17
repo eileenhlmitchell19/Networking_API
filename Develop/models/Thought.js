@@ -14,6 +14,12 @@ const reactionSchema = new mongoose.Schema({
     required: true, 
     maxLength: 280 
   },
+  thoughts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Thought",
+    },
+  ],
   username: { 
     type: String, 
     required: true,   
@@ -47,7 +53,7 @@ const thoughtSchema = new mongoose.Schema({
 
 
 thoughtSchema.virtual('reactionsCount').get(function(){
-  return this.reactions.length;
+  return this.thoughts.length;
 })
 //Using mongoose.model() to compile a model based 
 const Thought = mongoose.model('Thought', thoughtSchema);
