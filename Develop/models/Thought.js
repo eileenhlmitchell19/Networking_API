@@ -10,25 +10,27 @@ const reactionSchema = new mongoose.Schema({
     default: () => new Types.ObjectId() 
   },
   reactionBody: { 
-    type: String, 
+    type: Schema.Types.ObjectId, 
     required: true, 
     maxLength: 280 
   },
   thoughts: [
     {
-      type: Schema.Types.ObjectId,
+      type: String,
       ref: "Thought",
+      required: true
     },
   ],
   username: { 
     type: String, 
+    ref: "User",
     required: true,   
   },
-  createAt: { 
-    type: Date, 
-    default: Date.now, 
-    get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a'), 
-  },
+  // createAt: { 
+  //   type: Date, 
+  //   default: Date.now, 
+  //   get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a'), 
+  // },
 },
   {
     toJSON:{
@@ -52,9 +54,11 @@ const thoughtSchema = new mongoose.Schema({
 });
 
 
-thoughtSchema.virtual('reactionsCount').get(function(){
-  return this.thoughts.length;
-})
+// thoughtSchema.virtual('reactionsCount').get(function(){
+//   return this.thoughts.length;
+// })
+
+
 //Using mongoose.model() to compile a model based 
 const Thought = mongoose.model('Thought', thoughtSchema);
 

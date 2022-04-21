@@ -16,7 +16,7 @@ const thoughtController = {
 
   //GETS a single thought--------------//
   getsingleThought(req, res) {
-    Thought.findOne({ _id: req.params.thoughtid })
+    Thought.findOne({ _id: req.params.reactionId })
       .select("-__v")
       .then((thought) =>
         !thought
