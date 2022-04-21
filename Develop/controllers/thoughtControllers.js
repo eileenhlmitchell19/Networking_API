@@ -1,6 +1,6 @@
 // const express = require( 'express' );
 // const router = require('express').Router();
-const { Thought } = require("../models");
+const { Thought, User } = require("../models");
 // const User = require('../models/User');
 //do i need to route this different
 
@@ -35,7 +35,7 @@ const thoughtController = {
         console.log(thought);
         return User.findOneAndUpdate(
           { _id: req.body.userId },
-          { $addToSet: { thoughts: thought._id } },
+          { $push: { thoughts: thought._id } },
           { new: true }
         );
       })
